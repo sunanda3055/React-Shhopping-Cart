@@ -1,0 +1,55 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+.page-header{
+  h1{
+    font-size: 25px;
+  }
+}
+
+.product-card{
+  list-style: none;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: aliceblue;
+
+  li{
+    button{
+      padding: 0px 12px;
+    }
+
+    button:last-child{
+      padding: 0px 35px;
+    }
+  }
+
+}
+
+.msg-container{
+  color: #f00;
+  fontSize: 12px;
+}
+
+.nav.navbar-nav.navbar-right{
+  li{
+    div{
+      padding: 15px;
+      a{
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.table.table-striped.table-condensed.table-hover{
+  tbody{
+    tr{
+      th:last-child{
+        width: 200px;
+      }
+    }
+  }
+}
