@@ -3,7 +3,7 @@ import Button from "react-bootstrap/es/Button";
 import ProductCard from "./productCard";
 import {Form, FormControl, FormGroup} from "react-bootstrap";
 
-class StylishCart extends Component {
+class ProductsCart extends Component {
 
     state = {
         productDetail : '',
@@ -113,7 +113,7 @@ class StylishCart extends Component {
 
     render(){
         const { productDetail,productList,errorMessage } = this.state;
-        //console.log('productList from, StylishCart--->',productList);
+        //console.log('productList from, ProductsCart--->',productList);
 
         return(
             <div>
@@ -127,11 +127,13 @@ class StylishCart extends Component {
                             :
                             <Button bsStyle='primary'>ADD</Button>
                     }
-                    {
-                        errorMessage && (
-                            <div className='msg-container'>{errorMessage}</div>
-                        )
-                    }
+                    <div className='msg-container'>
+                        {
+                            errorMessage && (
+                                <span>{errorMessage}</span>
+                            )
+                        }
+                    </div>
                 </Form>
 
                 <ProductCard
@@ -146,4 +148,4 @@ class StylishCart extends Component {
     }
 }
 
-export default StylishCart
+export default ProductsCart

@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import { Table,Button } from "react-bootstrap/es";
 import PageHeader from "react-bootstrap/es/PageHeader";
+import InputGroup from "react-bootstrap/es/InputGroup";
+import Glyphicon from "react-bootstrap/es/Glyphicon";
 
 class Product extends Component {
 
@@ -20,10 +22,16 @@ class Product extends Component {
                     <td>{item.productName}</td>
                     <td>Rs.{item.price}</td>
                     <td>{item.quantity}</td>
+
                     <td>
-                        <Button bsStyle='primary' onClick={() => decrement(i)}>&nbsp;-&nbsp;</Button>&nbsp;
-                        <Button bsStyle='primary' onClick={() => increment(i)}>&nbsp;+&nbsp;</Button>&nbsp;
-                        <Button bsStyle='primary' onClick={() => deleteProduct(i)}>Remove</Button>
+                        <div className='cart-card-action'>
+                            <InputGroup>
+                                <Button onClick={() => decrement(i)}>-</Button>
+                                <InputGroup.Addon>{item.quantity}</InputGroup.Addon>
+                                <Button onClick={() => increment(i)}>+</Button>&nbsp;
+                                <Button onClick={() => deleteProduct(i)}><Glyphicon glyph="trash" /></Button>
+                            </InputGroup>
+                        </div>
                     </td>
                 </tr>
             )

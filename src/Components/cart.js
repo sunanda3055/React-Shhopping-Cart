@@ -127,11 +127,20 @@ class Cart extends Component {
                             <Button bsStyle='primary'>ADD</Button>
                     }
 
-                    {
-                        errorMessage && (
-                            <div className='msg-container'>{errorMessage}</div>
-                        )
-                    }
+
+                    <div className='msg-container'>
+                        {
+                            errorMessage && (
+                                <span>{errorMessage}</span>
+                            )
+                        }
+                    </div>
+
+                    {/*{*/}
+                        {/*errorMessage && (*/}
+                            {/*<div className='msg-container'>{errorMessage}</div>*/}
+                        {/*)*/}
+                    {/*}*/}
                 </Form>
 
                 <Product

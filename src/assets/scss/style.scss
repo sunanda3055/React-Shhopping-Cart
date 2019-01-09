@@ -1,6 +1,7 @@
 *{
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 .page-header{
@@ -9,28 +10,128 @@
   }
 }
 
+.about-inner-container{
+  padding-bottom: 10px;
+
+  ul{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    li{
+      width: 232px;
+      padding: 15px;
+
+      div{
+        text-align: center;
+        overflow-wrap: break-word;
+
+        div:nth-child(3){
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+
+      div:first-child{
+        img{
+          border-radius: 50%;
+          max-width: 50%;
+        }
+      }
+
+      &:hover{
+        border: 1px solid #adabab;
+        box-shadow: 1px 1px 8px 0px #adabab;
+      }
+    }
+  }
+}
+
 .product-card{
+  margin: 0 auto;
   list-style: none;
-  border: 1px solid black;
-  padding: 10px;
-  border-radius: 10px;
-  background-color: aliceblue;
+  border: 1px solid #adabab;
+  box-shadow: 1px 1px 8px 0px #adabab;
+  width: 229px;
 
   li{
-    button{
-      padding: 0px 12px;
+    padding: 10px;
+    img{
+      max-width: 100%;
+      height: 112px;
     }
 
-    button:last-child{
-      padding: 0px 35px;
+    .card-name{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      h3{
+        width: 130px;
+        overflow-wrap: break-word;
+      }
+
+      span{
+        font-size: 20px;
+        overflow-wrap: break-word;
+        text-align: center;
+      }
+    }
+
+    .card-action{
+      display: flex;
+      justify-content: space-between;
+
+      .input-group{
+        display: flex;
+
+        .input-group-addon{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        button{
+          padding: 0px 12px;
+        }
+      }
+    }
+
+    .view-more{
+      padding-top: 10px;
+      text-align: center;
     }
   }
 
+  li:first-child{
+    padding: 0;
+  }
 }
 
 .msg-container{
   color: #f00;
   fontSize: 12px;
+  position: absolute;
+}
+
+.cart-card-action{
+  display: flex;
+
+  .input-group{
+    display: flex;
+
+    .input-group-addon{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    button{
+      padding: 0px 12px;
+    }
+  }
 }
 
 .nav.navbar-nav.navbar-right{
@@ -51,5 +152,17 @@
         width: 200px;
       }
     }
+  }
+}
+
+footer{
+  padding: 20px 0;
+  background-color: #fbfbfb;
+  border: 1px solid #e7e7e7;;
+
+  .footer-container{
+    width: 1170px;
+    margin: 0 auto;
+    padding: 0 15px;
   }
 }

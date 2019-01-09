@@ -1,17 +1,12 @@
 import React, {Component} from 'react';
-import { Nav,Navbar,NavItem } from "react-bootstrap";
 
 class Footer extends Component {
 
     render(){
         return(
-            <Navbar>
-                <Nav pullRight>
-                    <NavItem>
-                        &copy; Shopping Cart
-                    </NavItem>
-                </Nav>
-            </Navbar>
+            <div className='footer-container'>
+                <span>&copy; Shopping Cart</span>
+            </div>
         )
     }
 }

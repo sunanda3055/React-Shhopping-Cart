@@ -17,10 +17,10 @@ class Header extends Component {
                         <Link to="/about">About</Link>
                     </NavItem>
                     <NavItem componentClass='div'>
-                        <Link to="/cart">Cart</Link>
+                        <Link to="/products">Products</Link>
                     </NavItem>
                     <NavItem componentClass='div'>
-                        <Link to="/stylishCart">Stylish Cart</Link>
+                        <Link to="/cart">Cart</Link>
                     </NavItem>
                 </Nav>
             </Navbar>

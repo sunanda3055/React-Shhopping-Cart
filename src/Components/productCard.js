@@ -4,6 +4,10 @@ import PageHeader from "react-bootstrap/es/PageHeader";
 import Grid from "react-bootstrap/es/Grid";
 import Row from "react-bootstrap/es/Row";
 import Col from "react-bootstrap/es/Col";
+import Image from "react-bootstrap/es/Image";
+import InputGroup from "react-bootstrap/es/InputGroup";
+import Glyphicon from "react-bootstrap/es/Glyphicon";
+import Header from "./header";
 
 class ProductCard extends Component {
 
@@ -19,16 +23,21 @@ class ProductCard extends Component {
                 <Col key={i} xs={6} md={3}>
                     <code>
                         <ul className='product-card'>
-
-                            <li><h4><b>{item.productName}</b></h4></li>
-                            <li><b>Rs.{item.price}</b></li>
-                            <li><b>Quantity : {item.quantity}</b></li>
-                            <li><b>Total : Rs.{item.quantity * item.price}</b></li>
+                            <li><Image src='/src/assets/images/mobile.jpeg'/></li>
                             <li>
-                                <Button bsStyle='primary' onClick={(e) => decrement(e,i)}>&nbsp;-&nbsp;</Button>&nbsp;
-                                <Button bsStyle='primary' onClick={(e) => increment(e,i)}>&nbsp;+&nbsp;</Button>&nbsp;
-                                <Button bsStyle='primary' onClick={(e) => deleteProduct(e,i)}>Remove</Button>
+                                <div className='card-name'><h3>{item.productName}</h3><span>Rs. {item.price}</span></div>
+                                <div><b>Total : Rs.{item.quantity * item.price}</b></div>
+                                <div className='card-action'>
+                                    <InputGroup>
+                                        <Button onClick={(e) => decrement(e,i)}>-</Button>
+                                        <InputGroup.Addon>{item.quantity}</InputGroup.Addon>
+                                        <Button onClick={(e) => increment(e,i)}>+</Button>&nbsp;
+                                    </InputGroup>
+                                    <Button onClick={(e) => deleteProduct(e,i)}><Glyphicon glyph="trash" /></Button>
+                                </div>
+                                <div className='view-more'><a>View Details</a></div>
                             </li>
+
                         </ul>
                     </code>
                 </Col>
@@ -41,13 +50,13 @@ class ProductCard extends Component {
                     Total : Rs.{totalPrice}
                 </PageHeader>
 
-                <Grid>
-                    <Row className="show-grid">
-                        {data}
-                    </Row>
-                </Grid>
-
-
+                <main>
+                    <Grid>
+                        <Row className="show-grid">
+                            {data}
+                        </Row>
+                    </Grid>
+                </main>
 
             </div>
         )

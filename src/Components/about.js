@@ -1,24 +1,43 @@
 import React, {Component} from 'react';
 import PageHeader from "react-bootstrap/es/PageHeader";
+import AboutCards from "./AboutCards";
+import Axios from 'axios';
+import Header from "./header";
 
 class About extends Component {
 
-    render(){
+    state = {
+        data: [],
+    }
 
+    componentDidMount() {
+        Axios.get('https://api.myjson.com/bins/q501k')
+            .then((response) => {
+                this.setState({data: response.data});
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+
+    }
+
+    render(){
+        const { data } = this.state;
+        //console.log('data--->',data);
         return(
             <div>
-                <PageHeader>
-                    About
-                </PageHeader>
+                <header>
+                    <PageHeader>
+                        About
+                    </PageHeader>
+                </header>
 
-                <p>
-                    <i>
-                        Shopping is an activity in which a customer browses the available goods or services presented by one or
-                        more retailers with the potential intent to purchase a suitable selection of them. A typology of
-                        shopper types has been developed by scholars which identifies one group of shoppers as recreational
-                        shoppers, that is, those who enjoy shopping and view it as a leisure activity.
-                    </i>
-                </p>
+                <div className='about-inner-container'>
+                    <ul>
+                        <AboutCards data={data}/>
+                    </ul>
+                </div>
+
             </div>
         )
     }
