@@ -22,16 +22,18 @@ class ProductsCart extends Component {
         return id;
     }
 
-    decrement = (e,i) =>{
+    decrement = (i) =>{
         const { productList } = this.state;
         const v = [...productList];
 
-        v.filter((item) => {
-            if(item['id'] === i){
-                item['quantity']--;
-            }
-            return item;
-        });
+        // v.filter((item) => {
+        //     if(item['id'] === i){
+        //         item['quantity']--;
+        //     }
+        //     return item;
+        // });
+
+        v[i].quantity--;
 
         this.setState({
             productList: v,
@@ -42,26 +44,34 @@ class ProductsCart extends Component {
         const { productList } = this.state;
         const v = [...productList];
 
-        v.filter((item) => {
-            if(item['id'] === i){
-                item['quantity']++;
-            }
-            return item;
-        });
+        v[i].quantity++;
 
         this.setState({
             productList: v,
         });
     }
 
-    deleteProduct = (e,i) => {
+    deleteProduct = (i) => {
         const { productList } = this.state;
         const objIndex = productList.findIndex((obj => obj.id === i));
-        productList.splice(objIndex,1);
+        const updatedList = [...productList];
+        updatedList.splice(objIndex,1);
 
         this.setState({
-            productList : productList,
+            productList : updatedList,
         });
+    }
+
+    checkItemExists(pl,n) {
+        const upl = pl.find((item) => item['productName'] === n);
+        if(upl === undefined){
+            this.setState({ errorMessage: '' });
+            return false;
+        }
+        else {
+            this.setState({ errorMessage: 'item already exists' });
+            return true;
+        }
     }
 
     addProductDetails = (e) => {
@@ -70,14 +80,28 @@ class ProductsCart extends Component {
         const arr = productDetail.split('-');
         const productName = arr[0];
         const price = arr[1];
-        const id = this.incrementId();
 
-        productList.push({
-            productName: productName,
-            price: price,
-            quantity: 1,
-            id: id,
-        });
+        if(productList.length>0){
+            const itemExists = this.checkItemExists(productList, productName);
+
+            if(!itemExists){
+                productList.push({
+                    productName: productName,
+                    price: price,
+                    quantity: 1,
+                    id: this.incrementId(),
+                });
+            }
+            else return;
+        }
+        else{
+            productList.push({
+                productName: productName,
+                price: price,
+                quantity: 1,
+                id: this.incrementId(),
+            });
+        }
 
         this.setState({
             productList : productList,
@@ -87,19 +111,17 @@ class ProductsCart extends Component {
 
     getValidationState() {
         const { productDetail } = this.state;
-        //const re = /^(([a-z]+)-([0-9]+))$/ig;
         const checkAlpha = /[a-zA-z ]$/g;
         const checkNum = /[0-9]$/g;
         const productName = productDetail.split('-')[0];
         const productPrice = productDetail.split('-')[1];
+
         if (
             !(productName && productName.match(checkAlpha))
             || !(productPrice && productPrice.match(checkNum))
         ) {
-            //console.log('Not Valid');
             this.setState({ errorMessage: 'Not Valid' })
         } else {
-            //console.log('Valid');
             this.setState({ errorMessage: '' })
         }
 
@@ -113,11 +135,12 @@ class ProductsCart extends Component {
 
     render(){
         const { productDetail,productList,errorMessage } = this.state;
-        //console.log('productList from, ProductsCart--->',productList);
+        console.log('productList from, ProductsCart--->',productList);
 
         return(
-            <div>
+            <React.Fragment>
                 <Form inline>
+
                     <FormGroup controlId="formInlineName" validationState={this.showValidationState()}>
                         <FormControl type="text" name='productDetail' value={productDetail} onChange={this.getProductDetails} placeholder="Item-Price" />
                     </FormGroup>{' '}
@@ -127,6 +150,7 @@ class ProductsCart extends Component {
                             :
                             <Button bsStyle='primary'>ADD</Button>
                     }
+
                     <div className='msg-container'>
                         {
                             errorMessage && (
@@ -134,6 +158,7 @@ class ProductsCart extends Component {
                             )
                         }
                     </div>
+
                 </Form>
 
                 <ProductCard
@@ -143,7 +168,7 @@ class ProductsCart extends Component {
                     deleteProduct={this.deleteProduct}
                 />
 
-            </div>
+            </React.Fragment>
         )
     }
 }

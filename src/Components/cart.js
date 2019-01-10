@@ -24,13 +24,7 @@ class Cart extends Component {
     decrement = (i) =>{
         const { productList } = this.state;
         const v = [...productList];
-
-        v.filter((item) => {
-            if(item['id'] === i){
-                item['quantity']--;
-            }
-            return item;
-        });
+        v[i].quantity--;
 
         this.setState({
             productList: v,
@@ -40,13 +34,7 @@ class Cart extends Component {
     increment = (i) =>{
         const { productList } = this.state;
         const v = [...productList];
-
-        v.filter((item) => {
-            if(item['id'] === i){
-                item['quantity']++;
-            }
-            return item;
-        });
+        v[i].quantity++;
 
         this.setState({
             productList: v,
@@ -61,6 +49,19 @@ class Cart extends Component {
         this.setState({
             productList : productList,
         });
+
+    }
+
+    checkItemExists(pl,n) {
+        const upl = pl.find((item) => item['productName'] === n);
+        if(upl === undefined){
+            this.setState({ errorMessage: '' });
+            return false;
+        }
+        else {
+            this.setState({ errorMessage: 'item already exists' });
+            return true;
+        }
     }
 
     addProductDetails = (e) => {
@@ -69,14 +70,28 @@ class Cart extends Component {
         const arr = productDetail.split('-');
         const productName = arr[0];
         const price = arr[1];
-        const id = this.incrementId();
 
-        productList.push({
-            productName: productName,
-            price: price,
-            quantity: 1,
-            id: id,
-        });
+        if(productList.length>0){
+            const itemExists = this.checkItemExists(productList,productName);
+
+            if(!itemExists){
+                productList.push({
+                    productName: productName,
+                    price: price,
+                    quantity: 1,
+                    id: this.incrementId(),
+                });
+            }
+            else return;
+        }
+        else{
+            productList.push({
+                productName: productName,
+                price: price,
+                quantity: 1,
+                id: this.incrementId(),
+            });
+        }
 
         this.setState({
             productList : productList,
@@ -115,7 +130,7 @@ class Cart extends Component {
         //console.log('productList from, cart--->',productList);
 
         return(
-            <div>
+            <React.Fragment>
                 <Form inline>
                     <FormGroup controlId="formInlineName" validationState={this.showValidationState()}>
                         <FormControl type="text" name='productDetail' value={productDetail} onChange={this.getProductDetails} placeholder="Item-Price" />
@@ -149,7 +164,7 @@ class Cart extends Component {
                     decrement={this.decrement}
                     deleteProduct={this.deleteProduct}
                 />
-            </div>
+            </React.Fragment>
         )
     }
 }

@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import PageHeader from "react-bootstrap/es/PageHeader";
 import AboutCards from "./AboutCards";
 import Axios from 'axios';
-import Header from "./header";
 
 class About extends Component {
 
@@ -18,14 +17,13 @@ class About extends Component {
             .catch((error) => {
                 console.log(error);
             });
-
     }
 
     render(){
         const { data } = this.state;
         //console.log('data--->',data);
         return(
-            <div>
+            <React.Fragment>
                 <header>
                     <PageHeader>
                         About
@@ -38,7 +36,7 @@ class About extends Component {
                     </ul>
                 </div>
 
-            </div>
+            </React.Fragment>
         )
     }
 }

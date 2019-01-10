@@ -1,14 +1,12 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-class Footer extends Component {
+function Footer () {
 
-    render(){
-        return(
-            <div className='footer-container'>
-                <span>&copy; Shopping Cart</span>
-            </div>
-        )
-    }
+    return(
+        <div className='footer-container'>
+            <span>&copy; Shopping Cart</span>
+        </div>
+    )
 }
 
 export default Footer

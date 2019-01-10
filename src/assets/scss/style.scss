@@ -4,6 +4,14 @@
   box-sizing: border-box;
 }
 
+.default-height{
+  min-height: 550px;
+}
+
+main{
+  @extend .default-height;
+}
+
 .page-header{
   h1{
     font-size: 25px;
@@ -102,6 +110,10 @@
     .view-more{
       padding-top: 10px;
       text-align: center;
+
+      a{
+        text-decoration: none;
+      }
     }
   }
 
