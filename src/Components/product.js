@@ -7,9 +7,6 @@ import Glyphicon from "react-bootstrap/es/Glyphicon";
 function Product (props) {
 
     const { productList, increment, decrement } = props;
-    //const jsonArray = JSON.parse(JSON.stringify(productList));
-    //console.log('jsonArray--->',jsonArray);
-    console.log('jsonArray--->',JSON.stringify(productList));
 
     let totalPrice = 0;
     const data = productList && productList.map((item,i) =>{
@@ -43,7 +40,7 @@ function Product (props) {
     });
 
     return(
-        <div>
+        <React.Fragment>
             <PageHeader>
                 Product Added to Cart
             </PageHeader>
@@ -69,7 +66,7 @@ function Product (props) {
                 </tr>
                 </tbody>
             </Table>
-        </div>
+        </React.Fragment>
     )
 }
 

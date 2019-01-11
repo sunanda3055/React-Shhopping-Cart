@@ -18,7 +18,7 @@ function ProductCard (props) {
         totalPrice += (item.quantity * item.price);
 
         return(
-            <Col key={i} xs={6} md={3}>
+            <Col key={i} xs={12} md={3}>
                 <code>
                     <ul className='product-card'>
 
@@ -39,7 +39,7 @@ function ProductCard (props) {
 
                                     <InputGroup.Addon>{item.quantity}</InputGroup.Addon>
 
-                                    <Button onClick={(e) => increment(e, item.id)}>+</Button>&nbsp;
+                                    <Button onClick={(e) => increment(item.id)}>+</Button>&nbsp;
                                 </InputGroup>
                                 <Button onClick={() => deleteProduct(item.id)}><Glyphicon glyph="trash" /></Button>
                             </div>

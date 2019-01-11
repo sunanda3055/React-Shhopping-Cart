@@ -13,9 +13,7 @@ class App extends Component {
         return(
             <Router>
                 <React.Fragment>
-                    <header>
-                        <Header />
-                    </header>
+                    <Header />
 
                     <main>
                         <div className='container'>
@@ -26,9 +24,7 @@ class App extends Component {
                         </div>
                     </main>
 
-                    <footer>
-                        <Footer />
-                    </footer>
+                    <Footer />
                 </React.Fragment>
             </Router>
         )
