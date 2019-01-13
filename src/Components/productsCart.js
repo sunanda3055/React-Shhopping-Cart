@@ -17,8 +17,8 @@ class ProductsCart extends Component {
     }
 
     incrementId = () => {
-        let { id } = this.state;
-        let incId = id + 1;
+        const { id } = this.state;
+        const incId = id + 1;
         this.setState({id: incId});
         return id;
     }
@@ -75,8 +75,8 @@ class ProductsCart extends Component {
         const { productList } = this.state;
         const objIndex = productList.findIndex((obj => obj.id === i));
         const updatedList = [...productList];
-        const deletdItem = updatedList.splice(objIndex,1);
-        console.log('v delete--->',deletdItem);
+        const deletedItem = updatedList.splice(objIndex,1);
+        console.log('v delete--->',deletedItem);
         console.log('i delete--->',i);
 
         this.setState({
