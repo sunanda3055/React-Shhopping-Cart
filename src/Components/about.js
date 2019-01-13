@@ -21,14 +21,12 @@ class About extends Component {
 
     render(){
         const { data } = this.state;
-        //console.log('data--->',data);
+
         return(
             <React.Fragment>
-                <header>
-                    <PageHeader>
-                        About
-                    </PageHeader>
-                </header>
+                <PageHeader>
+                    About
+                </PageHeader>
 
                 <div className='about-inner-container'>
                     <ul>

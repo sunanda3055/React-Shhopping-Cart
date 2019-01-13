@@ -8,7 +8,7 @@ class Home extends Component {
     render(){
 
         return(
-            <div>
+            <React.Fragment>
                 <PageHeader>
                     Home
                 </PageHeader>
@@ -36,7 +36,7 @@ class Home extends Component {
                         </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>
-            </div>
+            </React.Fragment>
         )
     }
 }

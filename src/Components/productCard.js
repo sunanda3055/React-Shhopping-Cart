@@ -1,20 +1,13 @@
 import React from 'react';
-import Button from "react-bootstrap/es/Button";
-import PageHeader from "react-bootstrap/es/PageHeader";
-import Grid from "react-bootstrap/es/Grid";
-import Row from "react-bootstrap/es/Row";
-import Col from "react-bootstrap/es/Col";
-import Image from "react-bootstrap/es/Image";
-import InputGroup from "react-bootstrap/es/InputGroup";
-import Glyphicon from "react-bootstrap/es/Glyphicon";
+import { PageHeader, Grid, Row, Col, Image, Glyphicon, Button } from "react-bootstrap";
+import Counter from "./counter";
 
 function ProductCard (props) {
 
-    const { productList,increment,decrement,deleteProduct } = props;
-    //console.log('productList from productCard props---->',productList);
+    const { productList, increment, decrement, handleQuantity, deleteProduct } = props;
 
     let totalPrice = 0;
-    const data = productList && productList.map((item,i) =>{
+    const data = productList && productList.map((item, i) =>{
         totalPrice += (item.quantity * item.price);
 
         return(
@@ -29,19 +22,21 @@ function ProductCard (props) {
                             <div><b>Total : Rs.{item.quantity * item.price}</b></div>
 
                             <div className='card-action'>
-                                <InputGroup>
-                                    {
-                                        item.quantity === 1 ?
-                                            <Button onClick={() => decrement(item.id)} disabled>-</Button>
-                                            :
-                                            <Button onClick={() => decrement(item.id)}>-</Button>
-                                    }
+                                {/*<InputGroup>*/}
+                                    {/*<Button onClick={() => decrement(item.id)} disabled={item.quantity === 1}>-</Button>*/}
+                                    {/*<InputGroup.Addon>{item.quantity}</InputGroup.Addon>*/}
+                                    {/*<Button onClick={() => increment(item.id)}>+</Button>&nbsp;*/}
+                                {/*</InputGroup>*/}
 
-                                    <InputGroup.Addon>{item.quantity}</InputGroup.Addon>
+                                <Counter
+                                    id={item.id}
+                                    quantity={item.quantity}
+                                    handleQuantity={handleQuantity}
+                                />
 
-                                    <Button onClick={(e) => increment(item.id)}>+</Button>&nbsp;
-                                </InputGroup>
-                                <Button onClick={() => deleteProduct(item.id)}><Glyphicon glyph="trash" /></Button>
+                                <Button onClick={() => deleteProduct(item.id)}>
+                                    <Glyphicon glyph="trash" />
+                                </Button>
                             </div>
 
                             <div className='view-more'><a href='#'>View Details</a></div>
@@ -66,7 +61,6 @@ function ProductCard (props) {
                     </Row>
                 </Grid>
             </main>
-
         </div>
     )
 }

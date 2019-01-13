@@ -1,16 +1,15 @@
 import React from 'react';
-import { Table,Button } from "react-bootstrap/es";
-import PageHeader from "react-bootstrap/es/PageHeader";
-import InputGroup from "react-bootstrap/es/InputGroup";
-import Glyphicon from "react-bootstrap/es/Glyphicon";
+import { Table, Button, PageHeader, Glyphicon } from "react-bootstrap";
+import Counter from "./counter";
 
-function Product (props) {
+function CartCard (props) {
 
-    const { productList, increment, decrement } = props;
+    const { productList, handleQuantity, deleteProduct } = props;
 
     let totalPrice = 0;
     const data = productList && productList.map((item,i) =>{
         totalPrice += (item.quantity * item.price);
+        console.log('totalPrice--->',totalPrice);
 
         return(
             <tr key={i}>
@@ -20,19 +19,16 @@ function Product (props) {
                 <td>{item.quantity}</td>
 
                 <td>
-                    <div className='cart-card-action'>
-                        <InputGroup>
-                            {
-                                item.quantity === 1 ?
-                                    <Button onClick={() => decrement(item.id)} disabled>-</Button>
-                                    :
-                                    <Button onClick={() => decrement(item.id)}>-</Button>
-                            }
+                    <div className='card-action'>
+                        <Counter
+                            id={item.id}
+                            quantity={item.quantity}
+                            handleQuantity={handleQuantity}
+                        />
 
-                            <InputGroup.Addon>{item.quantity}</InputGroup.Addon>
-
-                            <Button onClick={() => increment(item.id)}>+</Button>&nbsp;
-                        </InputGroup>
+                        <Button onClick={() => deleteProduct(item.id)}>
+                            <Glyphicon glyph="trash" />
+                        </Button>
                     </div>
                 </td>
             </tr>
@@ -70,4 +66,4 @@ function Product (props) {
     )
 }
 
-export default Product
+export default CartCard

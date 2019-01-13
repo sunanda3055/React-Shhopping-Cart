@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Button from "react-bootstrap/es/Button";
 import ProductCard from "./productCard";
 import {Form, FormControl, FormGroup} from "react-bootstrap";
-import {addItemsToArray} from "../actions";
+import { addItemsToArray } from "../actions";
 
 class ProductsCart extends Component {
 
@@ -23,43 +23,61 @@ class ProductsCart extends Component {
         return id;
     }
 
-    decrement = (i) =>{
+    handleQuantity = (qty, qtyId) => {
         const { productList } = this.state;
-        const v = [...productList];
+        const updatedProductList = [...productList];
 
-        v.map((item) => {
-            if(item['id'] === i){
-                item['quantity']--;
+        updatedProductList.map((item) => {
+            if(item['id'] === qtyId){
+                item['quantity'] = qty;
             }
             return item;
         });
 
         this.setState({
-            productList: v,
+            productList: updatedProductList,
         });
     }
 
-    increment = (i) =>{
-        const { productList } = this.state;
-        const v = [...productList];
-
-        v.map((item) => {
-            if(item['id'] === i){
-                item['quantity']++;
-            }
-            return item;
-        });
-
-        this.setState({
-            productList: v,
-        });
-    }
+    // decrement = (i) =>{
+    //     const { productList } = this.state;
+    //     const updatedProductList = [...productList];
+    //
+    //     updatedProductList.map((item) => {
+    //         if(item['id'] === i){
+    //             item['quantity']--;
+    //         }
+    //         return item;
+    //     });
+    //
+    //     this.setState({
+    //         productList: updatedProductList,
+    //     });
+    // }
+    //
+    // increment = (i) =>{
+    //     const { productList } = this.state;
+    //     const updatedProductList = [...productList];
+    //
+    //     updatedProductList.map((item) => {
+    //         if(item['id'] === i){
+    //             item['quantity']++;
+    //         }
+    //         return item;
+    //     });
+    //
+    //     this.setState({
+    //         productList: updatedProductList,
+    //     });
+    // }
 
     deleteProduct = (i) => {
         const { productList } = this.state;
         const objIndex = productList.findIndex((obj => obj.id === i));
         const updatedList = [...productList];
-        updatedList.splice(objIndex,1);
+        const deletdItem = updatedList.splice(objIndex,1);
+        console.log('v delete--->',deletdItem);
+        console.log('i delete--->',i);
 
         this.setState({
             productList : updatedList,
@@ -68,20 +86,12 @@ class ProductsCart extends Component {
 
     setAddButtonDisableOnError() {
         const { errorMessage } = this.state;
-        if(errorMessage === ''){
-            return false;
-        }
-        else return true;
+        return errorMessage !== '';
     }
 
     checkItemExists(pl,n) {
         const upl = pl.find((item) => item['productName'] === n);
-        if(upl === undefined){
-            return false;
-        }
-        else {
-            return true;
-        }
+        return upl !== undefined;
     }
 
     addProductDetails = (e) => {
@@ -95,14 +105,13 @@ class ProductsCart extends Component {
         if(productList.length>0){
             const itemExists = this.checkItemExists(productList,productName);
 
-            if(!itemExists){
-                addItemsToArray(productList, productName, price, quantity, this.incrementId());
-                this.setState({ errorMessage: '' });
-            }
-            else {
-                this.setState({ errorMessage: 'item already exists' });
-                return;
-            }
+            !itemExists ? (
+                addItemsToArray(productList, productName, price, quantity, this.incrementId()),
+                this.setState({ errorMessage: '' })
+                )
+
+            : this.setState({ errorMessage: 'item already exists' })
+
         }
         else{
             addItemsToArray(productList, productName, price, quantity, this.incrementId());
@@ -140,7 +149,7 @@ class ProductsCart extends Component {
 
     render(){
         const { productDetail,productList,errorMessage } = this.state;
-        //console.log('productList from, ProductsCart--->',productList);
+        console.log('productList----->',productList);
 
         return(
             <React.Fragment>
@@ -148,13 +157,9 @@ class ProductsCart extends Component {
 
                     <FormGroup controlId="formInlineName" validationState={this.showValidationState()}>
                         <FormControl type="text" name='productDetail' value={productDetail} onChange={(e) => this.getProductDetails(e.target.value)} placeholder="Item-Price" />
-                    </FormGroup>{' '}
-                    {
-                        productDetail && !this.setAddButtonDisableOnError() ?
-                            <Button type="submit" bsStyle='primary' onClick={(e) => {errorMessage ? e.preventDefault() : this.addProductDetails(e)}}>ADD</Button>
-                            :
-                            <Button type="submit" bsStyle='primary' onClick={(e) => {errorMessage ? e.preventDefault() : this.addProductDetails(e)}} disabled>ADD</Button>
-                    }
+                    </FormGroup>
+
+                    <Button type="submit" bsStyle='primary' onClick={(e) => {this.addProductDetails(e)}} disabled={!(productDetail && !this.setAddButtonDisableOnError())}>ADD</Button>
 
                     <div className='msg-container'>
                         {
@@ -168,9 +173,8 @@ class ProductsCart extends Component {
 
                 <ProductCard
                     productList={productList}
-                    increment={this.increment}
-                    decrement={this.decrement}
                     deleteProduct={this.deleteProduct}
+                    handleQuantity={this.handleQuantity}
                 />
 
             </React.Fragment>

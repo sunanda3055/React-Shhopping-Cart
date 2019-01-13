@@ -39,41 +39,42 @@
   list-style: none;
   border: 1px solid #adabab;
   box-shadow: 1px 1px 8px 0px #adabab;
-  width: 229px; }
-  .product-card li {
-    padding: 10px; }
-    .product-card li img {
-      max-width: 100%;
-      height: 112px; }
-    .product-card li .card-name {
-      display: flex;
-      justify-content: space-between;
-      align-items: center; }
-      .product-card li .card-name h3 {
-        width: 130px;
-        overflow-wrap: break-word; }
-      .product-card li .card-name span {
-        font-size: 20px;
-        overflow-wrap: break-word;
-        text-align: center; }
-    .product-card li .card-action {
-      display: flex;
-      justify-content: space-between; }
-      .product-card li .card-action .input-group {
-        display: flex; }
-        .product-card li .card-action .input-group .input-group-addon {
-          display: flex;
-          justify-content: center;
-          align-items: center; }
-        .product-card li .card-action .input-group button {
-          padding: 0px 12px; }
-    .product-card li .view-more {
-      padding-top: 10px;
+  width: 229px;
+  padding: 15px; }
+  .product-card li img {
+    max-width: 100%;
+    height: 112px;
+    margin-bottom: 10px; }
+  .product-card li .card-name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    .product-card li .card-name h3 {
+      width: 130px;
+      overflow-wrap: break-word; }
+    .product-card li .card-name span {
+      font-size: 20px;
+      overflow-wrap: break-word;
       text-align: center; }
-      .product-card li .view-more a {
-        text-decoration: none; }
+  .product-card li .view-more {
+    padding-top: 10px;
+    text-align: center; }
+    .product-card li .view-more a {
+      text-decoration: none; }
   .product-card li:first-child {
     padding: 0; }
+
+.card-action {
+  display: flex;
+  justify-content: space-between; }
+  .card-action .input-group {
+    display: flex; }
+    .card-action .input-group .input-group-addon {
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+    .card-action .input-group button {
+      padding: 0px 12px; }
 
 .msg-container {
   color: #f00;

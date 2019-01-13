@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import Product from "./product";
+import CartCard from "./cartCard";
 import { Button,Form,FormGroup,FormControl } from "react-bootstrap/es";
-import {addItemsToArray} from "../actions";
+import { addItemsToArray } from "../actions";
 
 class Cart extends Component {
 
@@ -11,36 +11,62 @@ class Cart extends Component {
         id: 0,
     }
 
-    getProductDetails = (e) => {
-        this.setState({productDetail : e.target.value}, this.getValidationState);
-    }
-
     incrementId = () => {
-        let { id } = this.state;
-        let incId = id + 1;
+        const { id } = this.state;
+        const incId = id + 1;
         this.setState({id: incId});
         return id;
     }
 
-    decrement = (i) =>{
+    handleQuantity = (qty, qtyId) => {
         const { productList } = this.state;
-        const v = [...productList];
-        v[i].quantity--;
+        const updatedProductList = [...productList];
+
+        updatedProductList.map((item) => {
+            if(item['id'] === qtyId){
+                item['quantity'] = qty;
+            }
+            return item;
+        });
+
+        console.log('updatedProductList--->',updatedProductList);
 
         this.setState({
-            productList: v,
+            productList: updatedProductList,
         });
     }
 
-    increment = (i) =>{
-        const { productList } = this.state;
-        const v = [...productList];
-        v[i].quantity++;
-
-        this.setState({
-            productList: v,
-        });
-    }
+    // decrement = (i) =>{
+    //     const { productList } = this.state;
+    //     const v = [...productList];
+    //
+    //     v.map((item) => {
+    //         if(item['id'] === i){
+    //             item['quantity']--;
+    //         }
+    //         return item;
+    //     });
+    //
+    //     this.setState({
+    //         productList: v,
+    //     });
+    // }
+    //
+    // increment = (i) =>{
+    //     const { productList } = this.state;
+    //     const v = [...productList];
+    //
+    //     v.map((item) => {
+    //         if(item['id'] === i){
+    //             item['quantity']++;
+    //         }
+    //         return item;
+    //     });
+    //
+    //     this.setState({
+    //         productList: v,
+    //     });
+    // }
 
     deleteProduct = (i) => {
         const { productList } = this.state;
@@ -55,20 +81,16 @@ class Cart extends Component {
 
     setAddButtonDisableOnError() {
         const { errorMessage } = this.state;
-        if(errorMessage === ''){
-            return false;
-        }
-        else return true;
+        return errorMessage !== '';
     }
 
     checkItemExists(pl,n) {
         const upl = pl.find((item) => item['productName'] === n);
-        if(upl === undefined){
-            return false;
-        }
-        else {
-            return true;
-        }
+        return upl !== undefined;
+    }
+
+    getProductDetails = (val) => {
+        this.setState({productDetail : val}, this.getValidationState);
     }
 
     addProductDetails = (e) => {
@@ -88,7 +110,6 @@ class Cart extends Component {
             }
             else {
                 this.setState({ errorMessage: 'item already exists' });
-                return;
             }
         }
         else{
@@ -103,19 +124,17 @@ class Cart extends Component {
 
     getValidationState() {
         const { productDetail } = this.state;
-        //const re = /^(([a-z]+)-([0-9]+))$/ig;
         const checkAlpha = /[a-zA-z ]$/g;
         const checkNum = /[0-9]$/g;
         const productName = productDetail.split('-')[0];
         const productPrice = productDetail.split('-')[1];
+
         if (
             !(productName && productName.match(checkAlpha))
             || !(productPrice && productPrice.match(checkNum))
         ) {
-            //console.log('Not Valid');
             this.setState({ errorMessage: 'Not Valid' })
         } else {
-            //console.log('Valid');
             this.setState({ errorMessage: '' })
         }
 
@@ -129,20 +148,16 @@ class Cart extends Component {
 
     render(){
         const { productDetail, productList, errorMessage } = this.state;
-        //console.log('productList from, cart--->',productList);
 
         return(
             <React.Fragment>
+
                 <Form inline>
                     <FormGroup controlId="formInlineName" validationState={this.showValidationState()}>
-                        <FormControl type="text" name='productDetail' value={productDetail} onChange={this.getProductDetails} placeholder="Item-Price" />
-                    </FormGroup>{' '}
-                    {
-                        productDetail && !this.setAddButtonDisableOnError() ?
-                            <Button type="submit" bsStyle='primary' onClick={(e) => {errorMessage ? e.preventDefault() : this.addProductDetails(e)}}>ADD</Button>
-                            :
-                            <Button type="submit" bsStyle='primary' onClick={(e) => {errorMessage ? e.preventDefault() : this.addProductDetails(e)}} disabled>ADD</Button>
-                    }
+                        <FormControl type="text" name='productDetail' value={productDetail} onChange={(e) => this.getProductDetails(e.target.value)} placeholder="Item-Price" />
+                    </FormGroup>
+
+                    <Button type="submit" bsStyle='primary' onClick={(e) => {this.addProductDetails(e)}} disabled={!(productDetail && !this.setAddButtonDisableOnError())}>ADD</Button>
 
                     <div className='msg-container'>
                         {
@@ -151,20 +166,14 @@ class Cart extends Component {
                             )
                         }
                     </div>
-
-                    {/*{*/}
-                        {/*errorMessage && (*/}
-                            {/*<div className='msg-container'>{errorMessage}</div>*/}
-                        {/*)*/}
-                    {/*}*/}
                 </Form>
 
-                <Product
+                <CartCard
                     productList={productList}
-                    increment={this.increment}
-                    decrement={this.decrement}
                     deleteProduct={this.deleteProduct}
+                    handleQuantity={this.handleQuantity}
                 />
+
             </React.Fragment>
         )
     }
