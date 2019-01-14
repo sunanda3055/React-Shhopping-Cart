@@ -27,44 +27,45 @@ class ProductsCart extends Component {
         const { productList } = this.state;
         const updatedProductList = [...productList];
 
-        updatedProductList.map((item) => {
-            if(item['id'] === qtyId){
-                item['quantity'] = qty;
+        for(let i=0; i < productList.length; i++){
+            const currentProduct = productList[i];
+            if(currentProduct.id === qtyId){
+                currentProduct.quantity = qty;
             }
-            return item;
-        });
+        }
 
         this.setState({
             productList: updatedProductList,
         });
     }
 
-    // decrement = (i) =>{
+    // decrement = (id) =>{
     //     const { productList } = this.state;
     //     const updatedProductList = [...productList];
     //
-    //     updatedProductList.map((item) => {
-    //         if(item['id'] === i){
-    //             item['quantity']--;
+    //     for(let i = 0; i < productList.length ; i++){
+    //         const currentProduct = productList[i];
+    //         if(currentProduct.id === id){
+    //             currentProduct.quantity--;
     //         }
-    //         return item;
-    //     });
+    //     }
     //
     //     this.setState({
     //         productList: updatedProductList,
     //     });
     // }
     //
-    // increment = (i) =>{
+    // increment = (id) =>{
     //     const { productList } = this.state;
     //     const updatedProductList = [...productList];
     //
-    //     updatedProductList.map((item) => {
-    //         if(item['id'] === i){
-    //             item['quantity']++;
+    //     for(let i=0; i < productList.length; i++){
+    //         const currentProduct = productList[i];
+    //
+    //         if(currentProduct.id === id){
+    //             currentProduct.quantity++;
     //         }
-    //         return item;
-    //     });
+    //     }
     //
     //     this.setState({
     //         productList: updatedProductList,

@@ -29,6 +29,7 @@ function ProductCard (props) {
                                 {/*</InputGroup>*/}
 
                                 <Counter
+                                    key={item.id + ': product'}
                                     id={item.id}
                                     quantity={item.quantity}
                                     handleQuantity={handleQuantity}

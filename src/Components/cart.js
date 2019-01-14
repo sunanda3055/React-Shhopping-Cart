@@ -22,49 +22,48 @@ class Cart extends Component {
         const { productList } = this.state;
         const updatedProductList = [...productList];
 
-        updatedProductList.map((item) => {
-            if(item['id'] === qtyId){
-                item['quantity'] = qty;
+        for(let i=0; i < productList.length; i++){
+            const currentProduct = productList[i];
+            if(currentProduct.id === qtyId){
+                currentProduct.quantity = qty;
             }
-            return item;
-        });
-
-        console.log('updatedProductList--->',updatedProductList);
+        }
 
         this.setState({
             productList: updatedProductList,
         });
     }
 
-    // decrement = (i) =>{
+    // decrement = (id) =>{
     //     const { productList } = this.state;
-    //     const v = [...productList];
+    //     const updatedProductList = [...productList];
     //
-    //     v.map((item) => {
-    //         if(item['id'] === i){
-    //             item['quantity']--;
+    //     for(let i = 0; i < productList.length ; i++){
+    //         const currentProduct = productList[i];
+    //         if(currentProduct.id === id){
+    //             currentProduct.quantity--;
     //         }
-    //         return item;
-    //     });
+    //     }
     //
     //     this.setState({
-    //         productList: v,
+    //         productList: updatedProductList,
     //     });
     // }
     //
-    // increment = (i) =>{
+    // increment = (id) =>{
     //     const { productList } = this.state;
-    //     const v = [...productList];
+    //     const updatedProductList = [...productList];
     //
-    //     v.map((item) => {
-    //         if(item['id'] === i){
-    //             item['quantity']++;
+    //     for(let i=0; i < productList.length; i++){
+    //         const currentProduct = productList[i];
+    //
+    //         if(currentProduct.id === id){
+    //             currentProduct.quantity++;
     //         }
-    //         return item;
-    //     });
+    //     }
     //
     //     this.setState({
-    //         productList: v,
+    //         productList: updatedProductList,
     //     });
     // }
 
@@ -148,6 +147,7 @@ class Cart extends Component {
 
     render(){
         const { productDetail, productList, errorMessage } = this.state;
+        console.log('productList--->',productList)
 
         return(
             <React.Fragment>

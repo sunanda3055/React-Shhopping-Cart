@@ -3,16 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="ba40c14d-bc29-4f89-a641-b76967a0094a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/AboutCards.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/AboutCards.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/about.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/about.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/cart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/product.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/cartCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/cartCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/cartCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/counter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/counter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/productCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/productCard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/productsCart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/productsCart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/scss/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/scss/style.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/style.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/scss/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/style.scss" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -83,14 +78,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="19" />
-          <entry key="js" value="6555" />
+          <entry key="js" value="6602" />
           <entry key="scss" value="987" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="19" />
-          <entry key="JavaScript" value="6555" />
+          <entry key="JavaScript" value="6602" />
           <entry key="SCSS" value="987" />
         </counts>
       </usages-collector>
@@ -119,7 +114,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
+            <state relative-caret-position="390">
               <caret line="26" column="24" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
@@ -128,11 +123,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Components/cart.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="172" column="53" selection-start-line="172" selection-start-column="53" selection-end-line="172" selection-end-column="53" />
+            <state relative-caret-position="175">
+              <caret line="149" column="49" selection-start-line="149" selection-start-column="49" selection-end-line="149" selection-end-column="49" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -143,8 +138,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/cartCard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+            <state relative-caret-position="165">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -153,22 +148,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/assets/scss/style.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1860">
-              <caret line="124" column="1" selection-start-line="124" selection-start-column="1" selection-end-line="124" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Components/productsCart.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="27" column="52" lean-forward="true" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="52" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="750">
+              <caret line="72" column="8" selection-start-line="72" selection-start-column="8" selection-end-line="72" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -176,8 +159,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/productCard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="31" column="47" selection-start-line="31" selection-start-column="47" selection-end-line="31" selection-end-column="47" />
+            <state relative-caret-position="225">
+              <caret line="31" column="63" lean-forward="true" selection-start-line="31" selection-start-column="63" selection-end-line="31" selection-end-column="63" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -188,8 +171,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/counter.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="17" column="44" lean-forward="true" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
+            <state relative-caret-position="150">
+              <caret line="28" column="68" lean-forward="true" selection-start-line="28" selection-start-column="68" selection-end-line="28" selection-end-column="68" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -235,11 +218,11 @@
         <option value="$PROJECT_DIR$/src/Components/AboutCards.js" />
         <option value="$PROJECT_DIR$/src/Components/about.js" />
         <option value="$PROJECT_DIR$/src/assets/scss/style.scss" />
-        <option value="$PROJECT_DIR$/src/Components/cartCard.js" />
-        <option value="$PROJECT_DIR$/src/Components/cart.js" />
-        <option value="$PROJECT_DIR$/src/Components/counter.js" />
-        <option value="$PROJECT_DIR$/src/Components/productCard.js" />
         <option value="$PROJECT_DIR$/src/Components/productsCart.js" />
+        <option value="$PROJECT_DIR$/src/Components/productCard.js" />
+        <option value="$PROJECT_DIR$/src/Components/cartCard.js" />
+        <option value="$PROJECT_DIR$/src/Components/counter.js" />
+        <option value="$PROJECT_DIR$/src/Components/cart.js" />
       </list>
     </option>
   </component>
@@ -271,7 +254,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -294,12 +276,26 @@
               <item name="Cart2" type="b2602c69:ProjectViewProjectNode" />
               <item name="Cart2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Cart2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Cart2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Cart2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Cart2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Components" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -361,7 +357,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="191228000" />
+    <option name="totallyTimeSpent" value="191815000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1299" height="743" extended-state="6" />
@@ -500,7 +496,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
+        <state relative-caret-position="390">
           <caret line="26" column="24" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
@@ -515,30 +511,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/cart.js">
+    <entry file="file://$PROJECT_DIR$/src/Components/productsCart.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="172" column="53" selection-start-line="172" selection-start-column="53" selection-end-line="172" selection-end-column="53" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/cartCard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="750">
+          <caret line="72" column="8" selection-start-line="72" selection-start-column="8" selection-end-line="72" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/productCard.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="31" column="47" selection-start-line="31" selection-start-column="47" selection-end-line="31" selection-end-column="47" />
+        <state relative-caret-position="225">
+          <caret line="31" column="63" lean-forward="true" selection-start-line="31" selection-start-column="63" selection-end-line="31" selection-end-column="63" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -547,18 +530,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/counter.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="17" column="44" lean-forward="true" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
+        <state relative-caret-position="150">
+          <caret line="28" column="68" lean-forward="true" selection-start-line="28" selection-start-column="68" selection-end-line="28" selection-end-column="68" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/productsCart.js">
+    <entry file="file://$PROJECT_DIR$/src/Components/cartCard.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="27" column="52" lean-forward="true" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="52" />
+        <state relative-caret-position="165">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/cart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="149" column="49" selection-start-line="149" selection-start-column="49" selection-end-line="149" selection-end-column="49" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
