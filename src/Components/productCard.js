@@ -30,7 +30,7 @@ function ProductCard (props) {
                                     handleQuantity={handleQuantity}
                                 />
 
-                                <Button onClick={() => deleteProduct(item.id)}>
+                                <Button key={item.id+'delete'} onClick={() => deleteProduct(item.id)}>
                                     <Glyphicon glyph="trash" />
                                 </Button>
                             </div>

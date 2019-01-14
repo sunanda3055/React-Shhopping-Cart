@@ -4,7 +4,7 @@ import { Button, InputGroup } from "react-bootstrap";
 class Counter extends Component {
 
     state = {
-        qty: 1,
+        qty: this.props.quantity,
     }
 
     decrement = (i) =>{
@@ -26,10 +26,11 @@ class Counter extends Component {
     render(){
         const { id, quantity } = this.props;
         const { qty } = this.state;
+        console.log('id and qty from counter : ',id,qty);
 
         return(
             <InputGroup>
-                <Button onClick={() => this.decrement(id)} disabled={qty === 1}>-</Button>
+                <Button onClick={() => this.decrement(id)} disabled={quantity === 1}>-</Button>
                 <InputGroup.Addon>{quantity}</InputGroup.Addon>
                 <Button onClick={() => this.increment(id)}>+</Button>&nbsp;
             </InputGroup>
