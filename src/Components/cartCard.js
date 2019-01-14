@@ -9,7 +9,6 @@ function CartCard (props) {
     let totalPrice = 0;
     const data = productList && productList.map((item,i) =>{
         totalPrice += (item.quantity * item.price);
-        console.log('totalPrice--->',totalPrice);
 
         return(
             <tr key={i}>
@@ -21,6 +20,7 @@ function CartCard (props) {
                 <td>
                     <div className='card-action'>
                         <Counter
+                            key={item.id+': product'}
                             id={item.id}
                             quantity={item.quantity}
                             handleQuantity={handleQuantity}

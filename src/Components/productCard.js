@@ -4,7 +4,7 @@ import Counter from "./counter";
 
 function ProductCard (props) {
 
-    const { productList, increment, decrement, handleQuantity, deleteProduct } = props;
+    const { productList, handleQuantity, deleteProduct } = props;
 
     let totalPrice = 0;
     const data = productList && productList.map((item, i) =>{
@@ -22,13 +22,9 @@ function ProductCard (props) {
                             <div><b>Total : Rs.{item.quantity * item.price}</b></div>
 
                             <div className='card-action'>
-                                {/*<InputGroup>*/}
-                                    {/*<Button onClick={() => decrement(item.id)} disabled={item.quantity === 1}>-</Button>*/}
-                                    {/*<InputGroup.Addon>{item.quantity}</InputGroup.Addon>*/}
-                                    {/*<Button onClick={() => increment(item.id)}>+</Button>&nbsp;*/}
-                                {/*</InputGroup>*/}
 
                                 <Counter
+                                    key={item.id+': product'}
                                     id={item.id}
                                     quantity={item.quantity}
                                     handleQuantity={handleQuantity}

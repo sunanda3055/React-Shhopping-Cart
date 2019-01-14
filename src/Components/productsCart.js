@@ -27,44 +27,45 @@ class ProductsCart extends Component {
         const { productList } = this.state;
         const updatedProductList = [...productList];
 
-        updatedProductList.map((item) => {
-            if(item['id'] === qtyId){
-                item['quantity'] = qty;
+        for(let i=0; i < productList.length; i++){
+            const currentProduct = productList[i];
+            if(currentProduct.id === qtyId){
+                currentProduct.quantity = qty;
             }
-            return item;
-        });
+        }
 
         this.setState({
             productList: updatedProductList,
         });
     }
 
-    // decrement = (i) =>{
+    // decrement = (id) =>{
     //     const { productList } = this.state;
     //     const updatedProductList = [...productList];
     //
-    //     updatedProductList.map((item) => {
-    //         if(item['id'] === i){
-    //             item['quantity']--;
+    //     for(let i = 0; i < productList.length ; i++){
+    //         const currentProduct = productList[i];
+    //         if(currentProduct.id === id){
+    //             currentProduct.quantity--;
     //         }
-    //         return item;
-    //     });
+    //     }
     //
     //     this.setState({
     //         productList: updatedProductList,
     //     });
     // }
     //
-    // increment = (i) =>{
+    // increment = (id) =>{
     //     const { productList } = this.state;
     //     const updatedProductList = [...productList];
     //
-    //     updatedProductList.map((item) => {
-    //         if(item['id'] === i){
-    //             item['quantity']++;
+    //     for(let i=0; i < productList.length; i++){
+    //         const currentProduct = productList[i];
+    //
+    //         if(currentProduct.id === id){
+    //             currentProduct.quantity++;
     //         }
-    //         return item;
-    //     });
+    //     }
     //
     //     this.setState({
     //         productList: updatedProductList,
@@ -75,9 +76,7 @@ class ProductsCart extends Component {
         const { productList } = this.state;
         const objIndex = productList.findIndex((obj => obj.id === i));
         const updatedList = [...productList];
-        const deletedItem = updatedList.splice(objIndex,1);
-        console.log('v delete--->',deletedItem);
-        console.log('i delete--->',i);
+        updatedList.splice(objIndex,1);
 
         this.setState({
             productList : updatedList,
@@ -102,7 +101,7 @@ class ProductsCart extends Component {
         const price = arr[1];
         const quantity = 1;
 
-        if(productList.length>0){
+        if(productList.length > 0){
             const itemExists = this.checkItemExists(productList,productName);
 
             !itemExists ? (
